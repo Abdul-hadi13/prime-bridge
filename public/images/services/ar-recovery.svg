@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="t d">
+  <title id="t">Accounts receivable follow-up and recovery</title>
+  <desc id="d">Bar chart of collections rising over time with an upward arrow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f766e"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="28" fill="url(#bg)"/>
+  <rect x="150" y="110" width="500" height="290" rx="18" fill="#ffffff"/>
+  <line x1="200" y1="350" x2="600" y2="350" stroke="#cbd5e1" stroke-width="4"/>
+  <rect x="220" y="290" width="54" height="60" rx="6" fill="#99f6e4"/>
+  <rect x="300" y="260" width="54" height="90" rx="6" fill="#5eead4"/>
+  <rect x="380" y="220" width="54" height="130" rx="6" fill="#2dd4bf"/>
+  <rect x="460" y="190" width="54" height="160" rx="6" fill="#14b8a6"/>
+  <rect x="540" y="150" width="54" height="200" rx="6" fill="#0f766e"/>
+  <path d="M230 240 L320 190 L400 160 L480 140 L570 120" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M552 108 L572 118 L560 136" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

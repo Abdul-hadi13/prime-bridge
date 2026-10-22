@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="t d">
+  <title id="t">A bridge connecting a medical practice to revenue</title>
+  <desc id="d">Illustration of a medical clinic on one side, a bridge arch, and coins on the other side.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0fdfa"/>
+      <stop offset="1" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="28" fill="url(#bg)"/>
+  <!-- water -->
+  <path d="M0 400 Q100 385 200 400 T400 400 T600 400 T800 400 V500 H0 Z" fill="#99f6e4" opacity="0.6"/>
+  <!-- bridge deck and arch -->
+  <path d="M120 300 Q400 90 680 300" fill="none" stroke="#0f766e" stroke-width="14" stroke-linecap="round"/>
+  <path d="M120 300 H680" stroke="#115e59" stroke-width="12" stroke-linecap="round"/>
+  <g stroke="#14b8a6" stroke-width="4" opacity="0.8">
+    <line x1="200" y1="270" x2="200" y2="300"/>
+    <line x1="260" y1="200" x2="260" y2="300"/>
+    <line x1="400" y1="150" x2="400" y2="300"/>
+    <line x1="540" y1="200" x2="540" y2="300"/>
+    <line x1="600" y1="270" x2="600" y2="300"/>
+  </g>
+  <!-- clinic building -->
+  <rect x="60" y="210" width="150" height="190" rx="8" fill="#0f766e"/>
+  <path d="M55 212 L135 150 L215 212 Z" fill="#115e59"/>
+  <rect x="115" y="320" width="40" height="80" rx="4" fill="#ffffff"/>
+  <g fill="#ffffff" opacity="0.9">
+    <rect x="80" y="240" width="22" height="22" rx="3"/>
+    <rect x="168" y="240" width="22" height="22" rx="3"/>
+    <rect x="80" y="280" width="22" height="22" rx="3"/>
+    <rect x="168" y="280" width="22" height="22" rx="3"/>
+  </g>
+  <path d="M135 165 V195 M120 180 H150" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <!-- coins stack on the revenue side -->
+  <g>
+    <ellipse cx="660" cy="350" rx="60" ry="16" fill="#f59e0b"/>
+    <rect x="600" y="334" width="120" height="16" fill="#d97706"/>
+    <ellipse cx="660" cy="334" rx="60" ry="16" fill="#fbbf24"/>
+    <ellipse cx="660" cy="312" rx="60" ry="16" fill="#f59e0b"/>
+    <rect x="600" y="296" width="120" height="16" fill="#d97706"/>
+    <ellipse cx="660" cy="296" rx="60" ry="16" fill="#fbbf24"/>
+  </g>
+  <g>
+    <circle cx="720" cy="230" r="34" fill="#ffffff"/>
+    <text x="720" y="243" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="#0f766e">$</text>
+  </g>
+</svg>

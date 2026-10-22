@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" role="img" aria-labelledby="t d">
+  <title id="t">Revenue cycle flow from patient visit to payment</title>
+  <desc id="d">Four connected steps: patient visit, medical coding, claim submission and payment received.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ccfbf1"/>
+      <stop offset="1" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="400" rx="28" fill="url(#bg)"/>
+  <path d="M170 200 H790" stroke="#0f766e" stroke-width="4" stroke-dasharray="10 12" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <g fill="url(#node)">
+    <circle cx="160" cy="200" r="72"/>
+    <circle cx="380" cy="200" r="72"/>
+    <circle cx="600" cy="200" r="72"/>
+    <circle cx="820" cy="200" r="72"/>
+  </g>
+  <g fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- visit: stethoscope-style head -->
+    <circle cx="160" cy="184" r="14"/>
+    <path d="M140 170 V192 a20 20 0 0 0 40 0 V170"/>
+    <!-- coding: clipboard with lines -->
+    <rect x="352" y="172" width="56" height="62" rx="6"/>
+    <path d="M366 190 H394 M366 204 H394 M366 218 H386"/>
+    <!-- claim: document with dollar -->
+    <path d="M572 172 H612 L628 188 V232 H572 Z"/>
+    <path d="M592 200 H608 M592 214 H608"/>
+    <!-- payment: check -->
+    <path d="M796 202 L814 220 L848 184"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#0f172a">
+    <text x="160" y="312">Patient visit</text>
+    <text x="380" y="312">Coding</text>
+    <text x="600" y="312">Claim sent</text>
+    <text x="820" y="312">Get paid</text>
+  </g>
+</svg>

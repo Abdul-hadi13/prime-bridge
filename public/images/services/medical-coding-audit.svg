@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="t d">
+  <title id="t">Medical coding audit</title>
+  <desc id="d">A magnifying glass examining a coded medical record.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f766e"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="28" fill="url(#bg)"/>
+  <rect x="200" y="100" width="300" height="340" rx="16" fill="#ffffff"/>
+  <g fill="#cbd5e1"><rect x="236" y="150" width="200" height="12" rx="6"/><rect x="236" y="186" width="230" height="12" rx="6"/><rect x="236" y="222" width="180" height="12" rx="6"/><rect x="236" y="258" width="210" height="12" rx="6"/></g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#0f766e"><text x="236" y="330">E/M 99214</text><text x="236" y="360">ICD-10 I10</text></g>
+  <circle cx="520" cy="260" r="88" fill="#ccfbf1" fill-opacity="0.35" stroke="#ffffff" stroke-width="18"/>
+  <line x1="584" y1="324" x2="668" y2="408" stroke="#ffffff" stroke-width="30" stroke-linecap="round"/>
+  <path d="M480 260 L506 286 L560 232" fill="none" stroke="#16a34a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
