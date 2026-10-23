@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 import { services } from "@/lib/services";
+import { MobileNav } from "@/components/MobileNav";
 
 export function Header() {
   return (
@@ -16,20 +17,16 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Link
-          href="/contact"
-          className="rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-800"
-        >
-          Free Consultation
-        </Link>
-      </div>
-      <nav aria-label="Mobile" className="flex gap-4 overflow-x-auto border-t border-slate-100 px-4 py-2 text-sm md:hidden">
-        {nav.map((n) => (
-          <Link key={n.href} href={n.href} className="whitespace-nowrap text-slate-700">
-            {n.label}
+        <div className="flex items-center gap-2">
+          <Link
+            href="/contact"
+            className="whitespace-nowrap rounded-md bg-teal-700 px-3 py-2 text-xs font-semibold text-white hover:bg-teal-800 sm:px-4 sm:text-sm"
+          >
+            Free Consultation
           </Link>
-        ))}
-      </nav>
+          <MobileNav />
+        </div>
+      </div>
     </header>
   );
 }
@@ -47,7 +44,7 @@ export function Footer() {
           <ul className="mt-2 space-y-1 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="hover:text-white">
+                <Link href={`/services/${s.slug}`} className="inline-flex min-h-6 items-center hover:text-white">
                   {s.name}
                 </Link>
               </li>
@@ -57,18 +54,18 @@ export function Footer() {
         <div>
           <p className="font-semibold text-white">Company</p>
           <ul className="mt-2 space-y-1 text-sm">
-            <li><Link href="/about" className="hover:text-white">About</Link></li>
-            <li><Link href="/specialties" className="hover:text-white">Specialties</Link></li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-            <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
-            <li><Link href="/terms" className="hover:text-white">Terms</Link></li>
+            <li><Link href="/about" className="inline-flex min-h-6 items-center hover:text-white">About</Link></li>
+            <li><Link href="/specialties" className="inline-flex min-h-6 items-center hover:text-white">Specialties</Link></li>
+            <li><Link href="/blog" className="inline-flex min-h-6 items-center hover:text-white">Blog</Link></li>
+            <li><Link href="/contact" className="inline-flex min-h-6 items-center hover:text-white">Contact</Link></li>
+            <li><Link href="/privacy-policy" className="inline-flex min-h-6 items-center hover:text-white">Privacy Policy</Link></li>
+            <li><Link href="/terms" className="inline-flex min-h-6 items-center hover:text-white">Terms</Link></li>
           </ul>
         </div>
         <div className="text-sm">
           <p className="font-semibold text-white">Contact</p>
-          <p className="mt-2"><a href={site.phoneHref} className="hover:text-white">{site.phone}</a></p>
-          <p><a href={`mailto:${site.email}`} className="hover:text-white">{site.email}</a></p>
+          <p className="mt-2"><a href={site.phoneHref} className="inline-flex min-h-6 items-center hover:text-white">{site.phone}</a></p>
+          <p><a href={`mailto:${site.email}`} className="inline-flex min-h-6 items-center hover:text-white">{site.email}</a></p>
           <p className="mt-2">{site.hours}</p>
         </div>
       </div>
@@ -112,13 +109,38 @@ export function Breadcrumbs({ items }: { items: { name: string; href?: string }[
 
 export function Faqs({ faqs }: { faqs: { q: string; a: string }[] }) {
   return (
-    <section className="mx-auto mt-16 max-w-3xl px-4">
-      <h2 className="text-2xl font-bold text-slate-900">Frequently asked questions</h2>
-      <div className="mt-4 divide-y divide-slate-200 rounded-lg border border-slate-200">
-        {faqs.map((f) => (
-          <details key={f.q} className="group p-4">
-            <summary className="cursor-pointer font-medium text-slate-900">{f.q}</summary>
-            <p className="mt-2 text-slate-600">{f.a}</p>
+    <section className="mx-auto mt-20 max-w-3xl px-4">
+      <div className="text-center">
+        <span className="inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal-700">
+          Good to know
+        </span>
+        <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">Frequently asked questions</h2>
+        <p className="mx-auto mt-3 max-w-xl text-slate-600">Quick answers to the questions practices ask us most often.</p>
+      </div>
+
+      <div className="mt-10 space-y-3">
+        {faqs.map((f, i) => (
+          <details
+            key={f.q}
+            className="group rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 open:border-teal-300 open:bg-teal-50/40 open:shadow-md hover:border-teal-300"
+          >
+            <summary className="flex cursor-pointer list-none items-center gap-4 p-5 [&::-webkit-details-marker]:hidden">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-teal-100 text-sm font-bold text-teal-800 transition-colors group-open:bg-teal-700 group-open:text-white">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="flex-1 font-semibold text-slate-900">{f.q}</span>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180 group-open:text-teal-700"
+              >
+                <path fillRule="evenodd" d="M5.3 7.3a1 1 0 011.4 0L10 10.6l3.3-3.3a1 1 0 111.4 1.4l-4 4a1 1 0 01-1.4 0l-4-4a1 1 0 010-1.4z" clipRule="evenodd" />
+              </svg>
+            </summary>
+            <div className="border-t border-teal-100 px-5 pb-5 pt-4 pl-18">
+              <p className="leading-relaxed text-slate-600">{f.a}</p>
+            </div>
           </details>
         ))}
       </div>

@@ -57,8 +57,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <style>{`.reveal,.stagger>*{opacity:1!important;animation:none!important}`}</style>
         </noscript>
         <JsonLd data={orgLd} />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:font-semibold focus:text-teal-800 focus:shadow-lg"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1 scroll-mt-20">{children}</main>
         <Footer />
       </body>
     </html>

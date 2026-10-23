@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs, Faqs } from "@/components/Layout";
 import { JsonLd, faqLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
+import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Prime Bridge | Free Billing Consultation",
@@ -15,45 +16,64 @@ const faqs = [
   { q: "Is this form for urgent medical issues?", a: "No. Prime Bridge is a billing company and cannot provide medical care. In an emergency, call 911." },
 ];
 
-const field = "mt-1 w-full rounded-md border border-slate-300 px-3 py-2";
+const channels = [
+  {
+    label: "Phone",
+    value: site.phone,
+    href: site.phoneHref,
+    icon: "M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z",
+  },
+  {
+    label: "Email",
+    value: site.email,
+    href: `mailto:${site.email}`,
+    icon: "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75",
+  },
+  {
+    label: "Hours",
+    value: site.hours,
+    href: undefined,
+    icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+];
 
 export default function ContactPage() {
   return (
     <>
       <JsonLd data={faqLd(faqs)} />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
-      <section className="mx-auto grid max-w-5xl gap-10 px-4 py-10 md:grid-cols-2">
+      <section className="mx-auto grid max-w-6xl items-start gap-12 px-4 py-12 lg:grid-cols-[1fr_1.1fr]">
         <div>
-          <h1 className="text-4xl font-bold text-slate-900">Book a Free Consultation</h1>
-          <p className="mt-3 text-slate-600">Tell us about your practice and what you need. We will respond within one business day.</p>
-          <dl className="mt-6 space-y-3 text-slate-700">
-            <div><dt className="font-semibold">Phone</dt><dd><a href={site.phoneHref} className="text-teal-700">{site.phone}</a></dd></div>
-            <div><dt className="font-semibold">Email</dt><dd><a href={`mailto:${site.email}`} className="text-teal-700">{site.email}</a></dd></div>
-            <div><dt className="font-semibold">Hours</dt><dd>{site.hours}</dd></div>
-          </dl>
+          <span className="inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal-700">
+            Contact us
+          </span>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">Book a Free Consultation</h1>
+          <p className="mt-4 max-w-md text-lg text-slate-600">
+            Tell us about your practice and what you need. We will review your billing and tell you where revenue may be slipping.
+          </p>
+
+          <ul className="mt-8 space-y-3">
+            {channels.map((c) => (
+              <li key={c.label} className="lift flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-5 w-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={c.icon} />
+                  </svg>
+                </span>
+                <span>
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-slate-500">{c.label}</span>
+                  {c.href ? (
+                    <a href={c.href} className="font-medium text-slate-900 hover:text-teal-700">{c.value}</a>
+                  ) : (
+                    <span className="font-medium text-slate-900">{c.value}</span>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <form action={`mailto:${site.email}`} method="post" encType="text/plain" className="space-y-4 rounded-xl border border-slate-200 p-6">
-          <label className="block text-sm font-medium">Name
-            <input name="name" required autoComplete="name" className={field} />
-          </label>
-          <label className="block text-sm font-medium">Email
-            <input name="email" type="email" required autoComplete="email" className={field} />
-          </label>
-          <label className="block text-sm font-medium">Service needed
-            <select name="service" className={field}>
-              <option>Medical billing</option>
-              <option>Credentialing</option>
-              <option>Coding audit</option>
-              <option>Denial management</option>
-              <option>Other</option>
-            </select>
-          </label>
-          <label className="block text-sm font-medium">Message
-            <textarea name="message" rows={4} className={field} />
-          </label>
-          <button type="submit" className="w-full rounded-md bg-teal-700 px-4 py-3 font-semibold text-white hover:bg-teal-800">Send</button>
-          <p className="text-xs text-slate-500">Please do not include patient health information in this form.</p>
-        </form>
+
+        <ContactForm />
       </section>
       <Faqs faqs={faqs} />
     </>
