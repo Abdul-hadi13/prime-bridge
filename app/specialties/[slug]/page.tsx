@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!s) return {};
   const title = `${s.name} Medical Billing Services`;
   const description = `${s.name} billing and coding built around ${s.challenge}. Prime Bridge helps ${s.name.toLowerCase()} practices cut denials and get paid faster.`;
-  return { title, description, alternates: { canonical: `/specialties/${s.slug}` }, openGraph: { title, description, url: absoluteUrl(`/specialties/${s.slug}`) } };
+  return { title, description, alternates: { canonical: `/specialties/${s.slug}` }, openGraph: { title, description, url: absoluteUrl(`/specialties/${s.slug}`), images: [absoluteUrl("/opengraph-image")] } };
 }
 
 export default async function SpecialtyPage({ params }: { params: Promise<{ slug: string }> }) {

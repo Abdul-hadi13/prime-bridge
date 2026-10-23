@@ -5,8 +5,10 @@ import { specialties } from "@/lib/specialties";
 import { posts } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  const entry = (path: string, priority: number, changeFrequency: "weekly" | "monthly" | "yearly", lastModified: Date = now) => ({
+  // Fixed date instead of new Date(), so static pages don't look changed on every build.
+  // Update this when the site content changes.
+  const lastUpdated = new Date("2026-10-23");
+  const entry = (path: string, priority: number, changeFrequency: "weekly" | "monthly" | "yearly", lastModified: Date = lastUpdated) => ({
     url: absoluteUrl(path),
     lastModified,
     changeFrequency,
